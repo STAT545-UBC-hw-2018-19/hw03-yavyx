@@ -18,12 +18,12 @@ Then, we can start doing the tasks:
 ``` r
 min_max_gdp <- gapminder %>%
   group_by(continent) %>%
-  summarize(minimum = min(gdpPercap), maximum = max(gdpPercap))
+  summarize(min_gdp = min(gdpPercap), max_gdp = max(gdpPercap))
 
 kable(min_max_gdp)
 ```
 
-| continent |     minimum|    maximum|
+| continent |    min\_gdp|   max\_gdp|
 |:----------|-----------:|----------:|
 | Africa    |    241.1659|   21951.21|
 | Americas  |   1201.6372|   42951.65|
@@ -55,18 +55,18 @@ With this table and graph, we can easily see the minimum and maximum GDP per cap
 ``` r
 gdp_spread <- gapminder %>%
   group_by(continent) %>%
-  summarize(StD = sd(gdpPercap), variance = var(gdpPercap))
+  summarize(gdp_StD = sd(gdpPercap), gdp_variance = var(gdpPercap))
 
 kable(gdp_spread)
 ```
 
-| continent |        StD|   variance|
-|:----------|----------:|----------:|
-| Africa    |   2827.930|    7997187|
-| Americas  |   6396.764|   40918591|
-| Asia      |  14045.373|  197272506|
-| Europe    |   9355.213|   87520020|
-| Oceania   |   6358.983|   40436669|
+| continent |   gdp\_StD|  gdp\_variance|
+|:----------|----------:|--------------:|
+| Africa    |   2827.930|        7997187|
+| Americas  |   6396.764|       40918591|
+| Asia      |  14045.373|      197272506|
+| Europe    |   9355.213|       87520020|
+| Oceania   |   6358.983|       40436669|
 
 ``` r
 gapminder %>%
@@ -130,7 +130,7 @@ trimmed_mean %>%
 
 ![](hw03-yavyx_files/figure-markdown_github/unnamed-chunk-5-1.png)
 
-We used the mean of every continent in each year to get a cleaner plot. Here we can see the trend for life expectancy in all the continents is going up. For the table, we used the `tidyr::spread()` function to make it more visually appealing to us. The trimmed argument discards 12.5% percent on each side of the distribution in each continent.
+Here we can see the trend for life expectancy in all the continents is going up. For the table, we used the `tidyr::spread()` function to make it more visually appealing to us. The trimmed argument discards 12.5% percent on each side of the distribution in each continent.
 
 ### Task 4
 
@@ -205,7 +205,7 @@ low_lifeExp %>%
   labs(title = "Relative abundance of countries below the average Life Expectancy", #Add labels
        x = "Year", 
        y = "Proportion below average Life Expectancy") +
-  scale_y_continuous(labels = scales::percent) #Change labels to percent
+  scale_y_continuous(labels = scales::percent) #Change y-axis labels to percentage
 ```
 
 ![](hw03-yavyx_files/figure-markdown_github/unnamed-chunk-7-1.png)

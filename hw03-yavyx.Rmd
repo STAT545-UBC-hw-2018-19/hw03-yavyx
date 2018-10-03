@@ -23,7 +23,7 @@ Then, we can start doing the tasks:
 ```{r}
 min_max_gdp <- gapminder %>%
   group_by(continent) %>%
-  summarize(minimum = min(gdpPercap), maximum = max(gdpPercap))
+  summarize(min_gdp = min(gdpPercap), max_gdp = max(gdpPercap))
 
 kable(min_max_gdp)
 
@@ -46,7 +46,7 @@ With this table and graph, we can easily see the minimum and maximum GDP per cap
 ```{r}
 gdp_spread <- gapminder %>%
   group_by(continent) %>%
-  summarize(StD = sd(gdpPercap), variance = var(gdpPercap))
+  summarize(gdp_StD = sd(gdpPercap), gdp_variance = var(gdpPercap))
 
 kable(gdp_spread)
 
@@ -92,7 +92,7 @@ trimmed_mean %>%
        y = "Life Expectancy")
 ```
 
-We used the mean of every continent in each year to get a cleaner plot. Here we can see the trend for life expectancy in all the continents is going up. For the table, we used the `tidyr::spread()` function to make it more visually appealing to us. The trimmed argument discards 12.5% percent on each side of the distribution in each continent.
+Here we can see the trend for life expectancy in all the continents is going up. For the table, we used the `tidyr::spread()` function to make it more visually appealing to us. The trimmed argument discards 12.5% percent on each side of the distribution in each continent.
 
 ###Task 4
 *How is life expectancy changing over time on different continents?*
@@ -142,7 +142,7 @@ low_lifeExp %>%
   labs(title = "Relative abundance of countries below the average Life Expectancy", #Add labels
        x = "Year", 
        y = "Proportion below average Life Expectancy") +
-  scale_y_continuous(labels = scales::percent) #Change labels to percent
+  scale_y_continuous(labels = scales::percent) #Change y-axis labels to percentage
 ```
 
 We can see that Africa has always had the highest proportion of countries with below average life expectancy, while Oceania never had any, and Europe hasn't had any since 1977.
