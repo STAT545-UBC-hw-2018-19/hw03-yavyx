@@ -1,7 +1,5 @@
 hw03\_yavyx
 ================
-Javier Castillo-Arnemann
-October 1, 2018
 
 First, we'll load the necessary libraries:
 
@@ -174,7 +172,9 @@ change_lifeExp %>%
 
 In this plot and table we can see the change for life expectancy in each country. In a way, it's the derivative of the life expectancy for every continent. The only continent to ever have a drop in life expectancy was Africa in 1997 and 2002.
 
-Task 5 *Report the absolute and/or relative abundance of countries with low life expectancy over time by continent: Compute some measure of worldwide life expectancy – you decide – a mean or median or some other quantile or perhaps your current age. Then determine how many countries on each continent have a life expectancy less than this benchmark, for each year.*
+### Task 5
+
+*Report the absolute and/or relative abundance of countries with low life expectancy over time by continent: Compute some measure of worldwide life expectancy – you decide – a mean or median or some other quantile or perhaps your current age. Then determine how many countries on each continent have a life expectancy less than this benchmark, for each year.*
 
 ``` r
 lifeExp_mean <- mean(gapminder$lifeExp)
@@ -211,3 +211,10 @@ low_lifeExp %>%
 ![](hw03-yavyx_files/figure-markdown_github/unnamed-chunk-7-1.png)
 
 We can see that Africa has always had the highest proportion of countries with below average life expectancy, while Oceania never had any, and Europe hasn't had any since 1977.
+
+References
+----------
+
+[Stack Overflow](https://stackoverflow.com/) was used many times for coding strategies.
+
+[Homework 2](https://github.com/STAT545-UBC-students/hw02-yavyx), [participation from cm007](https://github.com/yavyx/STAT545_participation/blob/master/cm007/cm007-exercise.Rmd), [participation from cm008](https://github.com/yavyx/STAT545_participation/tree/master/cm008/cm008-exercise.Rmd) and [participation from cm009](https://github.com/yavyx/STAT545_participation/blob/master/cm009/cm009-exercise.Rmd) from the class were also very useful.
