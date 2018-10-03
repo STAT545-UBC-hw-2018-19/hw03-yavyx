@@ -205,7 +205,7 @@ low_lifeExp %>%
   labs(title = "Relative abundance of countries below the average Life Expectancy", #Add labels
        x = "Year", 
        y = "Proportion below average Life Expectancy") +
-  scale_y_continuous(labels = scales::percent) #kable(spread_low_lifeExp) #Change labels to percent
+  scale_y_continuous(labels = scales::percent) #Change labels to percent
 ```
 
 ![](hw03-yavyx_files/figure-markdown_github/unnamed-chunk-7-1.png)
